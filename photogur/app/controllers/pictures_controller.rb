@@ -33,6 +33,13 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    @picture = Picture.find(params[:id])      #find user selected id in Picture array and assign to @picture
+    @picture.destroy                          #destroy @picture 
+    redirect_to pictures_url                  #redirect to pictures_url  (ruby helper)
+  end
+
+
   private 
   def picture_params
     params.require(:picture).permit(:artist, :title, :url)

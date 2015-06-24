@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get 'pictures/:id' => 'pictures#show', as: 'picture'
 
+  delete 'pictures/:id' => 'pictures#destroy', as: "delete_picture"
+
+  root 'pictures#index'
+
 end
 
 
