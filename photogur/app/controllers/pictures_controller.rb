@@ -3,7 +3,11 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
   end
   def show 
-    @picture = Picture.find(params[:id])
+    begin
+      @picture = Picture.find(params[:id])
+    rescue
+      render "404"
+    end
   end
 
   def new
@@ -27,8 +31,9 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
 
     if @picture.update_attributes(picture_params)
-      redirect_to "pictures/#{@picture.id}"
+      redirect_to "/pictures/#{@picture.id}"
     else
+      flash[:notice] = "Please enter info"
       render :edit 
     end
   end
@@ -46,3 +51,4 @@ class PicturesController < ApplicationController
   end
 
 end
+  
