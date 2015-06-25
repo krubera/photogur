@@ -34,7 +34,7 @@ class PicturesController < ApplicationController
       redirect_to "/pictures/#{@picture.id}"
     else
       flash[:notice] = "Please enter info"
-      render :edit 
+      render :edit
     end
   end
 

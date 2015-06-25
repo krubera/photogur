@@ -1,5 +1,7 @@
 <h1> Edit Picture </h1> 
-
+  <% @picture.errors.each do |err|%>   <!-- for object @picture initialize errors method (errors = array containing compilation of ruby specific errors.) for each error run loop to return value of error - if error is found. -->
+  <%= err %>
+  <% end %>  
 
   <p> 
     <%= link_to "Back", @picture %>

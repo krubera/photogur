@@ -1,8 +1,10 @@
-<h1>Pictures</h1>
+<h1><em>Photogur</em></h1>
+<p>(click an image to inspect)</p>
+
 
 <%@pictures.each do |picture|%>
   <p><%= picture.title%>, <%=picture.artist%> </p>
-  <img src="<%=picture.url%>">
+  <%= link_to image_tag(picture.url), picture %>
   <%end%>
 
 
